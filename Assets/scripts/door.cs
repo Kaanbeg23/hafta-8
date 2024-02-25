@@ -6,11 +6,9 @@ public class door : MonoBehaviour
 {
     public GameObject kapi;
     int sayac;
-    void Start()
-    {
-        
-    }
-    void Update()
+    public AudioClip[] coin;
+    public AudioSource audio;
+    private void FixedUpdate()
     {
         
     }
@@ -20,7 +18,8 @@ public class door : MonoBehaviour
         {
             Destroy(other.gameObject);            
             sayac++;
-        }        
+            audio.PlayOneShot(coin[Random.Range(0, coin.Length)]);
+        }       
         if (sayac==3)
         {
             Destroy(kapi);

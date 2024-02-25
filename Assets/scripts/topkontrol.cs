@@ -18,7 +18,7 @@ public class topkontrol : MonoBehaviour
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>(); 
+        rb = GetComponent<Rigidbody>();
     }
     private void Update()
     {
@@ -42,13 +42,13 @@ public class topkontrol : MonoBehaviour
     }
     
     private void FixedUpdate()
-    {
+    {       
         if (durum==true)
         {
             float yatay = Input.GetAxis("Horizontal");
             float dikey = Input.GetAxis("Vertical");
             Vector3 kuvvet = new Vector3(-dikey, 0, yatay);
-            rb.AddForce(kuvvet * hiz);
+            rb.AddForce(kuvvet * hiz*2);            
         }
         else 
         {
@@ -62,7 +62,9 @@ public class topkontrol : MonoBehaviour
         if (objismi.Equals("bitis"))
         {
             print("oyunu kazandýnýz");
-            kazancanvas.SetActive(true);          
+            kazancanvas.SetActive(true);
+            rb.velocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
         }
         else if (objismi.Equals("duvar"))
         {
@@ -72,8 +74,8 @@ public class topkontrol : MonoBehaviour
             {
                 durum = false;
                 CanvasObject.SetActive(true);
-                sayaclarc.SetActive(true);
+                sayaclarc.SetActive(true);                
             }
-        }
+        }       
     }
 }

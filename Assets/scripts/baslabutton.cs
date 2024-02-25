@@ -24,4 +24,8 @@ public class baslabutton : MonoBehaviour
     {
         SceneManager.LoadScene("basla");
     }
+    public void level()
+    {
+        SceneManager.LoadScene("level2");
+    }
 }
